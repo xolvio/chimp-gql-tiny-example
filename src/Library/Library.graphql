@@ -1,0 +1,14 @@
+# A library has a branch and books
+type Library {
+    branch: String!
+    books: [Book!]!
+}
+
+# A book has a title
+extend type Book {
+    library: Library!
+}
+
+type Query {
+    libraries: [Library!]!
+}
