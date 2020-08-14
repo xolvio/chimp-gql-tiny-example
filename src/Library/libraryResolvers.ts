@@ -6,25 +6,30 @@ export const libraryResolvers = {
   },
   Library: {
     books: (library) => {
-      return books.filter((b) => b.libraryName === library.branch);
+      return books.filter((b) => b.library === library.id);
     },
   },
   Book: {
     library: (book) => {
-      return libraries.find((l) => l.branch === book.libraryName);
+      return libraries.find((l) => l.id === book.library);
     },
   },
 };
 
-const libraries = [{ branch: "Thinkers" }, { branch: "Coders" }];
+const libraries = [
+  { id: "lib-1", branch: "Thinkers" },
+  { id: "lib-2", branch: "Coders" },
+];
 
 const books = [
   {
-    libraryName: "Thinkers",
+    id: "1",
+    library: "lib-1",
     title: "Meditations",
   },
   {
-    libraryName: "Coders",
+    id: "2",
+    library: "lib-2",
     title: "Clean Code",
   },
 ];

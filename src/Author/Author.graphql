@@ -1,0 +1,8 @@
+extend type Book {
+  author: Author!
+}
+
+type Author {
+  name: String!
+  books: [Book!]!
+}

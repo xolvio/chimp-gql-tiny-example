@@ -1,24 +1,15 @@
-import { makeExecutableSchema } from "graphql-tools";
-import { importSchema } from "graphql-import";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import SchemaLink from "apollo-link-schema";
 import { gql } from "apollo-server";
-
-import { resolvers } from "../resolvers";
+import { schemaWithResolvers } from "../schema";
 
 const createClient = () => {
-  let typeDefs = importSchema([
-    "src/Library/Library.graphql",
-    "src/Book/Book.graphql",
-  ]);
-  const schema = makeExecutableSchema({
-    typeDefs: typeDefs,
-    resolvers,
-  });
   return new ApolloClient({
     cache: new InMemoryCache({ addTypename: false }),
-    link: new SchemaLink({ schema, context: {} }),
+    link: new SchemaLink({
+      schema: schemaWithResolvers,
+    }),
   });
 };
 

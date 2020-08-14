@@ -1,14 +1,17 @@
 # A library has a branch and books
 type Library {
-    branch: String!
-    books: [Book!]!
+  id: ID!
+  branch: String!
+  books: [Book!]!
 }
 
 # A book has a title
-extend type Book {
-    library: Library!
+type Book {
+  id: ID!
+  title: String!
+  library: Library!
 }
 
 type Query {
-    libraries: [Library!]!
+  libraries: [Library!]!
 }

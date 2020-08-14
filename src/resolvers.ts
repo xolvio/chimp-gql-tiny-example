@@ -1,4 +1,4 @@
 import merge from "lodash/merge";
-import { bookResolvers } from "./Book/bookResolvers";
+import { authorResolvers } from "./Author/authorResolvers";
 import { libraryResolvers } from "./Library/libraryResolvers";
-export const resolvers = merge({}, bookResolvers, libraryResolvers);
+export const resolvers = merge({}, authorResolvers, libraryResolvers);
