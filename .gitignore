@@ -4,3 +4,5 @@ node_modules
 coverage
 .cache
 package-lock.json
+schema.graphql
+generated/

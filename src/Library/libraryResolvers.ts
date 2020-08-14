@@ -1,35 +1,18 @@
 export const libraryResolvers = {
   Query: {
-    libraries: () => {
-      return libraries;
+    libraries: (_, __, { dataSources }) => {
+      return dataSources.libraryApi.getLibraries();
     },
   },
   Library: {
-    books: (library) => {
-      return books.filter((b) => b.library === library.id);
+    books: (library, _, { dataSources }) => {
+      return dataSources.libraryApi.getBooksFor(library.id);
     },
   },
   Book: {
-    library: (book) => {
+    library: async (book, _, { dataSources }) => {
+      const libraries = await dataSources.libraryApi.getLibraries();
       return libraries.find((l) => l.id === book.library);
     },
   },
 };
-
-const libraries = [
-  { id: "lib-1", branch: "Thinkers" },
-  { id: "lib-2", branch: "Coders" },
-];
-
-const books = [
-  {
-    id: "1",
-    library: "lib-1",
-    title: "Meditations",
-  },
-  {
-    id: "2",
-    library: "lib-2",
-    title: "Clean Code",
-  },
-];

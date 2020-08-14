@@ -3,12 +3,14 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import SchemaLink from "apollo-link-schema";
 import { gql } from "apollo-server";
 import { schemaWithResolvers } from "../schema";
+import { dataSources } from "../dataSources";
 
 const createClient = () => {
   return new ApolloClient({
     cache: new InMemoryCache({ addTypename: false }),
     link: new SchemaLink({
       schema: schemaWithResolvers,
+      context: { dataSources: dataSources() },
     }),
   });
 };

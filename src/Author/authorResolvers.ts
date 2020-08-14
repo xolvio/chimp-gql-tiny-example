@@ -1,18 +1,7 @@
 export const authorResolvers = {
   Book: {
-    author: (book) => {
-      return authors.find((a) => a.books.includes(book.id));
+    author: (book, _, { dataSources }) => {
+      return dataSources.authorApi.getAuthorFor(book.id);
     },
   },
 };
-
-const authors = [
-  {
-    name: "Marcus Aurelius",
-    books: ["1"],
-  },
-  {
-    name: "Uncle Bob",
-    books: ["2"],
-  },
-];
