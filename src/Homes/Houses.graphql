@@ -1,0 +1,19 @@
+
+interface Home {
+    address: String
+}
+
+type House implements Home {
+    address: String
+    floors: String
+}
+
+type Apartment implements Home {
+    address: String
+    floor: String
+}
+
+
+extend type Query {
+    AllHomes: [Home!]!
+}

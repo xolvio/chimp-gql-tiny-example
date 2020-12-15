@@ -1,8 +1,0 @@
-extend type Book {
-  author: Author! @computed
-}
-
-type Author {
-  name: String!
-  books: [Book!]! @link
-}
