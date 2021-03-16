@@ -1,8 +1,8 @@
 extend type Book {
-  author: Author!
+  author: Author! @computed
 }
 
 type Author {
   name: String!
-  books: [Book!]!
+  books: [Book!]! @link
 }

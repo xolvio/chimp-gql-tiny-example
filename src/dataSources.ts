@@ -1,5 +1,5 @@
-import { LibraryAPI } from "./Library/libraryDataSource";
-import { AuthorAPI } from "./Author/authorDataSource";
+import { LibraryAPI } from "./modules/Library/libraryDataSource";
+import { AuthorAPI } from "./modules/Author/authorDataSource";
 
 export const dataSources = () => ({
   libraryApi: new LibraryAPI(),
