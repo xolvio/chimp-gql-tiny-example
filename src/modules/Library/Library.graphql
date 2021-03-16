@@ -2,16 +2,16 @@
 type Library {
   id: ID!
   branch: String!
-  books: [Book!]!
+  books: [Book!]! @computed
 }
 
 # A book has a title
 type Book {
   id: ID!
   title: String!
-  library: Library!
+  library: Library! @link
 }
 
-type Query {
+extend type Query {
   libraries: [Library!]!
 }

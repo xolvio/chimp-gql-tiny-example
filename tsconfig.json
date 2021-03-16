@@ -2,7 +2,18 @@
   "compilerOptions": {
     "target": "ES2019",
     "module": "commonjs",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "~app/*": [
+        "./src/*"
+      ],
+      "~generated/*": [
+        "./generated/*"
+      ]
+    },
+    "baseUrl": "./"
   },
-  "exclude": ["./node_modules"]
+  "exclude": [
+    "./node_modules"
+  ]
 }
